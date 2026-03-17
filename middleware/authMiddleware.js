@@ -5,7 +5,7 @@ module.exports = function (req, res, next) {
     return res.status(401).json({ message: "No token" });
   }
   try {
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    const decoded = jwt.verify(token, "supersecretkey");
     req.user = decoded;
     next();
   } catch {
